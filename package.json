@@ -1,0 +1,71 @@
+{
+  "name": "less-env",
+  "version": "0.1.0",
+  "description": "No node_modules, build a quick demo environment locally",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "clean": "rm -rf ./dist",
+    "build": "yarn clean && tsc && chmod +x dist/fast-create.js",
+    "prepare": "yarn build",
+    "check-types": "tsc --noEmit",
+    "check-formatting": "prettier --check '**/*.{js,json,md,tsx,ts}'"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "less-env": "./dist/less-env.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KieSun/less-env.git"
+  },
+  "keywords": [
+    "cli",
+    "npm"
+  ],
+  "author": "KieSun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KieSun/less-env/issues"
+  },
+  "homepage": "https://github.com/KieSun/less-env#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^8.2.0",
+    "@types/jest": "^27.4.1",
+    "@types/shelljs": "^0.8.11",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^4.3.0",
+    "jest": "^27.5.1",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.6.0",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,tsx,ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.1.0",
+    "fs-extra": "^10.0.1",
+    "inquirer": "^8.2.1",
+    "shelljs": "^0.8.5"
+  }
+}
