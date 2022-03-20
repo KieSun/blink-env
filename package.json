@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "clean": "rm -rf ./dist",
-    "build": "yarn clean && tsc && chmod +x dist/fast-create.js",
+    "build": "yarn clean && tsc && chmod +x dist/less-env.js",
     "prepare": "yarn build",
     "check-types": "tsc --noEmit",
     "check-formatting": "prettier --check '**/*.{js,json,md,tsx,ts}'"
